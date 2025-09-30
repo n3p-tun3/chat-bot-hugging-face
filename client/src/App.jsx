@@ -1,4 +1,5 @@
 import './App.css'
+import ChatWidget from './ChatWidget'
 
 function App() {
   return (
@@ -15,8 +16,8 @@ function App() {
         <div className="container">
           <h2>Welcome to Our Coffee Haven</h2>
           <p>
-            At Cozy Beans Café, we're passionate about serving the perfect cup of coffee. 
-            From our carefully sourced beans to our expertly crafted beverages, 
+            At Cozy Beans Café, we're passionate about serving the perfect cup of coffee.
+            From our carefully sourced beans to our expertly crafted beverages,
             every sip is a journey of flavor and warmth.
           </p>
         </div>
@@ -65,6 +66,8 @@ function App() {
           <p>&copy; 2025 Cozy Beans Café. All rights reserved.</p>
         </div>
       </footer>
+
+      <ChatWidget />
     </div>
   )
 }
