@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+.coffee-shop {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.7;
+  color: #1a1a1a;
+  font-weight: 400;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+  width: 100%;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(135deg, #2c1810 0%, #4a2c1a 100%);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  position: relative;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+  opacity: 0.3;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-content h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+}
+
+.hero-content p {
+  font-size: 1.25rem;
+  margin-bottom: 3rem;
+  opacity: 0.9;
+  font-weight: 300;
+}
+
+.cta-button {
+  background: transparent;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 16px 32px;
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  font-family: inherit;
+}
+
+.cta-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.6);
+  transform: translateY(-1px);
+}
+
+/* Sections */
+.about,
+.hours,
+.features {
+  padding: 120px 0;
+}
+
+.about {
+  background: #fafafa;
+  text-align: center;
+}
+
+.about h2 {
+  font-size: 2.25rem;
+  margin-bottom: 2rem;
+  color: #1a1a1a;
+  font-weight: 300;
+  letter-spacing: -0.01em;
+}
+
+.about p {
+  font-size: 1.125rem;
+  max-width: 700px;
+  margin: 0 auto;
+  color: #666;
+  line-height: 1.8;
+}
+
+/* Hours Section */
+.hours {
+  background: white;
+}
+
+.hours h2 {
+  text-align: center;
+  font-size: 2.25rem;
+  margin-bottom: 4rem;
+  color: #1a1a1a;
+  font-weight: 300;
+  letter-spacing: -0.01em;
+}
+
+.hours-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 4rem;
+  text-align: center;
+}
+
+.hours-item h3 {
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+  color: #1a1a1a;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.875rem;
+}
+
+.hours-item p {
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem;
+  color: #666;
+  font-weight: 300;
+}
+
+/* Features Section */
+.features {
+  background: #fafafa;
+}
+
+.features h2 {
+  text-align: center;
+  font-size: 2.25rem;
+  margin-bottom: 4rem;
+  color: #1a1a1a;
+  font-weight: 300;
+  letter-spacing: -0.01em;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.feature {
+  background: white;
+  padding: 3rem 2rem;
+  text-align: center;
+  border: 1px solid #f0f0f0;
+  transition: all 0.3s ease;
+}
+
+.feature:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  border-color: #e0e0e0;
+}
+
+.feature h3 {
+  font-size: 1.125rem;
+  margin-bottom: 1rem;
+  color: #1a1a1a;
+  font-weight: 400;
+}
+
+.feature p {
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Footer */
+.footer {
+  background: #1a1a1a;
+  color: #999;
+  text-align: center;
+  padding: 3rem 0;
+}
+
+.footer p {
+  font-size: 0.875rem;
+  font-weight: 300;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-content p {
+    font-size: 1.125rem;
+  }
+
+  .about,
+  .hours,
+  .features {
+    padding: 80px 0;
+  }
+
+  .about h2,
+  .hours h2,
+  .features h2 {
+    font-size: 1.875rem;
+  }
+
+  .container {
+    padding: 0 20px;
+  }
+
+  .hours-grid {
+    gap: 3rem;
+  }
+}
