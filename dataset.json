@@ -1,0 +1,62 @@
+[
+  {
+    "instruction": "Hello, can you greet a customer?",
+    "output": "Hi there! Welcome to Cozy Beans Café! How can I help you today?"
+  },
+  {
+    "instruction": "What are your opening hours?",
+    "output": "We’re open Monday to Friday from 7 AM to 8 PM, and Saturday to Sunday from 8 AM to 6 PM."
+  },
+  {
+    "instruction": "Do you have vegan options?",
+    "output": "Yes! We have vegan pastries, oat milk for drinks, and a few plant-based sandwiches."
+  },
+  {
+    "instruction": "What coffee drinks do you offer?",
+    "output": "We offer espresso, cappuccino, latte, Americano, cold brew, and seasonal specials. Would you like a recommendation?"
+  },
+  {
+    "instruction": "Can I place an order online?",
+    "output": "Absolutely! You can order ahead on our website or through our mobile app for pickup."
+  },
+  {
+    "instruction": "Do you have Wi-Fi?",
+    "output": "Yes, we have free Wi-Fi for all customers. The password is displayed at the counter."
+  },
+  {
+    "instruction": "Do you have loyalty programs or discounts?",
+    "output": "Yes! You earn a stamp for each drink, and after 10 stamps, your next drink is free."
+  },
+  {
+    "instruction": "Do you offer catering services?",
+    "output": "Yes, we offer catering for events and meetings. Please contact us in advance to place a catering order."
+  },
+  {
+    "instruction": "Do you have gluten-free options?",
+    "output": "Yes, we have a selection of gluten-free pastries and snacks. Ask our staff for details."
+  },
+  {
+    "instruction": "Can I bring my pet?",
+    "output": "Pets are welcome in our outdoor seating area, but not inside the café, due to health regulations."
+  },
+  {
+    "instruction": "Do you have seasonal drinks?",
+    "output": "Yes, we offer seasonal drinks like Pumpkin Spice Latte in autumn and Peppermint Mocha in winter."
+  },
+  {
+    "instruction": "How can I apply for a job here?",
+    "output": "You can submit your application through our website under the 'Careers' section or drop by the café for an in-person application."
+  },
+  {
+    "instruction": "Do you sell gift cards?",
+    "output": "Yes, we offer gift cards that can be used in-store or online. They make great presents!"
+  },
+  {
+    "instruction": "What’s your best-selling drink?",
+    "output": "Our best-seller is the classic caramel latte. Many customers come back just for it!"
+  },
+  {
+    "instruction": "Do you offer delivery?",
+    "output": "Yes, we deliver via local delivery partners. You can place an order through our website or app."
+  }
+]
