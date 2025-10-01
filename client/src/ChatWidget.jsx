@@ -12,7 +12,7 @@ function ChatWidget() {
   const [inputValue, setInputValue] = useState('')
   const [isLoading, setIsLoading] = useState(false)
   const messagesEndRef = useRef(null)
-  const sessionId = useRef(`session_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`)
+  const sessionId = useRef(`session_${Date.now()}_${Math.random().toString(36).substring(2, 11)}`)
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
@@ -37,7 +37,9 @@ function ChatWidget() {
     setMessages(prev => [...prev, { role: 'user', content: userMessage }])
 
     try {
-      const response = await fetch('http://localhost:3000/api/chat', {
+      const apiUrl = import.meta.env.VITE_API_BASE_URL || 'https://chat-bot-hugging-face.onrender.com'
+      console.log('API URL:', apiUrl)
+      const response = await fetch(`${apiUrl}/api/chat`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -53,17 +55,17 @@ function ChatWidget() {
       }
 
       const data = await response.json()
-      
+
       // Add bot response to chat
-      setMessages(prev => [...prev, { 
-        role: 'assistant', 
-        content: data.reply.content 
+      setMessages(prev => [...prev, {
+        role: 'assistant',
+        content: data.reply.content
       }])
     } catch (error) {
       console.error('Error sending message:', error)
-      setMessages(prev => [...prev, { 
-        role: 'assistant', 
-        content: 'Sorry, I encountered an error. Please try again.' 
+      setMessages(prev => [...prev, {
+        role: 'assistant',
+        content: 'Sorry, I encountered an error. Please try again.'
       }])
     } finally {
       setIsLoading(false)
@@ -88,7 +90,7 @@ function ChatWidget() {
               ×
             </button>
           </div>
-          
+
           <div className="chat-messages">
             {messages.map((message, index) => (
               <div key={index} className={`message ${message.role === 'user' ? 'user-message' : 'bot-message'}`}>
@@ -108,19 +110,19 @@ function ChatWidget() {
             )}
             <div ref={messagesEndRef} />
           </div>
-          
+
           <div className="chat-input">
-            <input 
-              type="text" 
-              placeholder="Type your message..." 
+            <input
+              type="text"
+              placeholder="Type your message..."
               className="message-input"
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
-              onKeyPress={handleKeyPress}
+              onKeyDown={handleKeyPress}
               disabled={isLoading}
             />
-            <button 
-              className="send-btn" 
+            <button
+              className="send-btn"
               onClick={sendMessage}
               disabled={isLoading || !inputValue.trim()}
             >
