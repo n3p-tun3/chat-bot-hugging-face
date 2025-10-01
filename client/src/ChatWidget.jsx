@@ -37,7 +37,7 @@ function ChatWidget() {
     setMessages(prev => [...prev, { role: 'user', content: userMessage }])
 
     try {
-      const apiUrl = import.meta.env.VITE_API_BASE_URL || 'https://chat-bot-hugging-face.onrender.com'
+      const apiUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000'
       console.log('API URL:', apiUrl)
       const response = await fetch(`${apiUrl}/api/chat`, {
         method: 'POST',

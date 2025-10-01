@@ -27,6 +27,11 @@ const HF_TOKEN = process.env.HUGGINGFACE_API_KEY;
 
 const client = new InferenceClient(HF_TOKEN);
 
+// Load café dataset for context
+import fs from 'fs';
+const dataset = JSON.parse(fs.readFileSync('dataset.json', 'utf8'));
+const cafeContext = dataset.map(item => `Q: ${item.instruction}\nA: ${item.output}`).join('\n\n');
+
 // Store conversation history in memory (session-based)
 const conversations = new Map();
 
@@ -47,11 +52,25 @@ app.post("/api/chat", async (req, res) => {
     // Keep only last 10 messages to prevent token overflow
     const recentHistory = history.slice(-10);
 
+    // Add system message with café context for new conversations
+    const messagesWithContext = [];
+    if (history.length <= 2) { // Only add context for new conversations
+        messagesWithContext.push({
+            role: "system",
+            content: `You are a helpful assistant for Cozy Beans Café. Use this information to answer customer questions:
+
+${cafeContext}
+
+Always be friendly, helpful, and café-focused in your responses. If asked about something not related to the café, politely redirect the conversation back to how you can help with café-related questions.`
+        });
+    }
+    messagesWithContext.push(...recentHistory);
+
     try {
         const chatCompletion = await client.chatCompletion({
             provider: "novita",
             model: "deepseek-ai/DeepSeek-V3.1-Terminus",
-            messages: recentHistory,
+            messages: messagesWithContext,
         });
 
         const reply = chatCompletion.choices[0].message;
